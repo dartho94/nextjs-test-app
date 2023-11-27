@@ -2,6 +2,15 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
+Create a .env file inside src/
+and populate with variables for:
+```
+MONGO_URI=?
+DOMAIN=http://localhost:3000
+MAILER_USER=?
+MAILER_PASS=?
+```
+
 First, run the development server:
 
 ```bash
