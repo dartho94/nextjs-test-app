@@ -3,10 +3,11 @@ import { NextRequest } from "next/server";
 
 export function middleware(request: NextRequest){
     const path = request.nextUrl.pathname;
-    const isPublicPath = path === '/login' || path === '/signup' || path === '/verifyemail' || path === '/forgotpass';
+    const isPublicPath = path === '/login' || path === '/signup' || path === '/verifyemail' || path === '/forgotpass' || path === '/';
     const token = request.cookies.get('token')?.value || '';
 
-    if(isPublicPath && token){
+    if(isPublicPath && token && path !== '/'){
+        console.log("here");
         return NextResponse.redirect(new URL('/', request.url));
     }
     if(!isPublicPath && !token){
